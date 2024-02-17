@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bppfcseqr5yi7"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_ewjg4"]
+[ext_resource type="Texture2D" uid="uid://qjqnpmqcsphp" path="res://assets/player.png" id="1_rax5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky1sg"]
+atlas = ExtResource("1_rax5n")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vsa1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"action_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky1sg")
+}],
+"loop": true,
+"name": &"idle_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es2h7"]
+size = Vector2(6, 13)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ewjg4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_7vsa1")
+animation = &"idle_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_es2h7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

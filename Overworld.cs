@@ -3,8 +3,8 @@ using System;
 
 public partial class Overworld : Node
 {
-	public const int MapSize = 512;
-	public const double TerrainCap = 0.1;
+	public const int MapSize = 1024;
+	public const double TerrainCap = 0;
 
 	public TileMap OverworldTileMap;
 	
@@ -13,6 +13,7 @@ public partial class Overworld : Node
 	{
 		OverworldTileMap = GetNode<TileMap>("OverworldTileMap");
 		GenerateContinents();
+		//var UserPlayer = GD.Load<PackedScene>("res://Player.tscn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

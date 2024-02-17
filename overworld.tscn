@@ -79,6 +79,7 @@ sources/0 = SubResource("TileSetAtlasSource_4c1gc")
 script = ExtResource("1_mbe42")
 
 [node name="OverworldTileMap" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource("TileSet_67h5s")
 format = 2
 layer_0/name = "Land"
