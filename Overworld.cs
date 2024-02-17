@@ -4,7 +4,7 @@ using System;
 public partial class Overworld : Node
 {
 	public const int MapSize = 512;
-	public const double TerrainCap = 1;
+	public const double TerrainCap = 0.1;
 
 	public TileMap OverworldTileMap;
 	
@@ -25,7 +25,7 @@ public partial class Overworld : Node
 	{
 		var tileNoise = new FastNoiseLite();
 		tileNoise.NoiseType = FastNoiseLite.NoiseTypeEnum.Perlin;
-		tileNoise.Seed = 0;
+		tileNoise.Seed = (int)new RandomNumberGenerator().Randi();
 
 		for (var x = 0; x < MapSize; x++)
 		{
@@ -36,7 +36,7 @@ public partial class Overworld : Node
 				{
 					OverworldTileMap.SetCell(0, new Vector2I(x, y), 0, new Vector2I(0, 0), 0);
 				}
-				OverworldTileMap.SetCell(1, new Vector2I(x, y), 0, new Vector2I(1, 0), 0);
+				OverworldTileMap.SetCell(1, new Vector2I(x, y), 0, new Vector2I(0, 1), 0);
 			}
 		}
 		
